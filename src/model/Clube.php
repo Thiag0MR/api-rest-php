@@ -19,19 +19,19 @@ class Clube {
     }
 
     public function isValid() : bool {
-        $errorMessage = array();
+        $errorMessage = '';
         if ($this->saldo_disponivel == 0) {
-            array_push($errorMessage, "Valor inválido.");
+            $errorMessage .= 'Valor inválido. ';
         }
         if ($this->saldo_disponivel < 0) {
-            array_push($errorMessage, 'Saldo não deve ser negativo.');
+            $errorMessage .= 'Saldo não deve ser negativo.';
         }
         if (strlen($this->clube) < 3)  {
-            array_push($errorMessage, 'O nome do clube deve ter mais de 3 caracteres.');
+            $errorMessage .= 'O nome do clube deve ter mais de 3 caracteres. ';
         }
 
-        if (sizeof($errorMessage) > 0) {
-            throw new \Exception(json_encode($errorMessage, JSON_UNESCAPED_UNICODE));
+        if ($errorMessage != '') {
+            throw new \Exception($errorMessage);
         }
         return true;
     }
