@@ -24,6 +24,20 @@ class RecursoDao {
         }
     }
 
+    public function selecionarTodosRecursos() {
+        $conn = Database::getConnection();
+
+        $sql = 'SELECT * FROM '.self::$nome_tabela;
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+
+        if ($stmt->rowCount() > 0) {
+            return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        } else {
+            throw new \Exception("Não existe nenhum recurso cadastrado!");
+        }
+    }
+
     public function atualizarSaldoDisponivel($id, $saldo, $conn = null){
         $conn = is_null($conn) ? Database::getConnection(): $conn;
         
