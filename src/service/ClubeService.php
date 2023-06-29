@@ -15,4 +15,10 @@ class ClubeService {
     public function listarTodosClubes() {
         return $this->clubeDao->selecionarTodosClubes();
     }
+
+    public function criarClube($clube) {
+        if ($clube->isValid()) {
+            return $this->clubeDao->inserir($clube);
+        }
+    }
 }
