@@ -20,6 +20,9 @@ class Clube {
 
     public function isValid() : bool {
         $errorMessage = array();
+        if ($this->saldo_disponivel == 0) {
+            array_push($errorMessage, "Valor inválido.");
+        }
         if ($this->saldo_disponivel < 0) {
             array_push($errorMessage, 'Saldo não deve ser negativo.');
         }
