@@ -1,0 +1,15 @@
+{
+    "name": "thiago/api-rest",
+    "autoload": {
+        "psr-4": {
+            "app\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Thiago",
+            "email": "thiagoomendes2010@gmail.com"
+        }
+    ],
+    "require": {}
+}

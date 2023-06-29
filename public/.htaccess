@@ -1,0 +1,6 @@
+# Configuração usada para redirecionar as requisições para o arquivo index.php
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php
