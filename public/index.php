@@ -7,9 +7,11 @@ ini_set('display_errors', 'on');
 require_once __DIR__.'/../vendor/autoload.php';
 
 use app\core\Application;
+use app\controller\ClubeController;
 
 $app = new Application(__DIR__.'/../');
 
 $app->router->get('/', 'home');
+$app->router->get('/clubes', [ClubeController::class, 'listarTodosClubes']);
 
 echo $app->run();
