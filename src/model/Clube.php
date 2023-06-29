@@ -19,7 +19,17 @@ class Clube {
     }
 
     public function isValid() : bool {
-        // Fazer validações
+        $errorMessage = array();
+        if ($this->saldo_disponivel < 0) {
+            array_push($errorMessage, 'Saldo não deve ser negativo.');
+        }
+        if (strlen($this->clube) < 3)  {
+            array_push($errorMessage, 'O nome do clube deve ter mais de 3 caracteres.');
+        }
+
+        if (sizeof($errorMessage) > 0) {
+            throw new \Exception(json_encode($errorMessage, JSON_UNESCAPED_UNICODE));
+        }
         return true;
     }
     
