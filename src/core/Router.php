@@ -50,6 +50,7 @@ class Router{
     }
 
     public function renderView($viewName) {
-        return file_get_contents(Application::$ROOT_DIR.'/src/view/'.$viewName.'.php');
+        $file = Application::$ROOT_DIR.'/src/view/'.$viewName.'.php';
+        return file_get_contents($file);
     }
 }
