@@ -4,7 +4,7 @@ namespace app\core;
 
 class Request {
 
-    private static string $ROOT_PATH = "/api-rest/public";
+    private static string $ROOT_PATH = "/api-rest-php/public";
     
     public function getPath() {
         $path = $_SERVER['REQUEST_URI'] ?? '/';
